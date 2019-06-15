@@ -60,7 +60,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary tambah-barang" data-dismiss="modal">SIMPAN</button>
+                <button type="button" class="btn btn-primary tambah-pemeriksaan" data-dismiss="modal">SIMPAN</button>
               </div>
             </div>
           </div>

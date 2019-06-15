@@ -269,6 +269,7 @@
 <script src="plugins/chartjs/Chart.min.js"></script>
 <script src="addfile/grafik/chart-siswa.js"></script>
 <script src="addfile/barang.js"></script>
+<script src="addfile/pemeriksaan.js"></script>
 
 
 <!-- AdminLTE App -->
