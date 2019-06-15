@@ -24,16 +24,16 @@ if ($eks=="tambah") {
 }
 
 elseif ($eks=="hapus") {
-  $id = $_POST['id_barang'];
+  $id = $_POST['id_pemeriksaan'];
 
-  $hapus = $koneksi->prepare("DELETE FROM tb_barang WHERE id_barang=:id");
+  $hapus = $koneksi->prepare("DELETE FROM tb_pemeriksaan WHERE id_pemeriksaan=:id");
   $hapus->bindParam(':id',$id);
   $hapus->execute();
 }
 
 elseif ($eks=="detail") {
-     $id = $_POST['id_barang'];
-     $tampil =$koneksi->prepare("SELECT * FROM tb_barang WHERE id_barang=:id");
+     $id = $_POST['id_pemeriksaan'];
+     $tampil =$koneksi->prepare("SELECT * FROM tb_pemeriksaan WHERE id_pemeriksaan=:id");
      $tampil->bindParam(':id',$id);
      $tampil->execute();
      $data = $tampil->Fetch(PDO::FETCH_ASSOC);
@@ -42,19 +42,20 @@ elseif ($eks=="detail") {
 
 elseif ($eks=="update") {
     $id = $_POST['id'];
-    $nama = $_POST['nama'];
-    $stok = $_POST['stok'];
-    $exp=date("Y-m-d", strtotime($_POST['exp']));
-    $satuan = $_POST['satuan'];
+    $jp = $_POST['jp'];
+    $harga = $_POST['harga'];
+    $unit = $_POST['unit'];
+    $rujukan = $_POST['rujukan'];
+    $profil = $_POST['profil'];
 
-    $sql = "UPDATE tb_barang SET nama_barang=:nama,stok=:stok,exp=:exp,satuan=:satuan WHERE id_barang=:id ";
+    $sql = "UPDATE tb_pemeriksaan SET jenis_pemeriksaan=:jp,unit=:unit,harga=:harga,nilai_rujukan=:rujukan,id_profil=:profil WHERE id_pemeriksaan=:id ";
     $update = $koneksi->prepare($sql);
-
     $update->bindParam(':id',$id);
-    $update->bindParam(':nama',$nama);
-    $update->bindParam(':stok',$stok);
-    $update->bindParam(':exp',$exp);
-    $update->bindParam(':satuan',$satuan);
+    $update->bindParam(':jp',$jp);
+    $update->bindParam(':harga',$harga);
+    $update->bindParam(':unit',$unit);
+    $update->bindParam(':rujukan',$rujukan);
+    $update->bindParam(':profil',$profil);
     $update->execute();
    }
 elseif ($eks=="keluar") {
@@ -73,6 +74,13 @@ elseif ($eks=="keluar") {
     $update->bindParam(':id',$id);
     $update->bindParam(':nilai',$increase);
     $update->execute();
+}elseif ($eks=="profil"){
+     $id = $_POST['id_profil'];
+     $tampil =$koneksi->prepare("SELECT * FROM tb_profil WHERE id_profil=:id");
+     $tampil->bindParam(':id',$id);
+     $tampil->execute();
+     $data = $tampil->Fetch(PDO::FETCH_ASSOC);
+     echo json_encode($data);
 }
 
 

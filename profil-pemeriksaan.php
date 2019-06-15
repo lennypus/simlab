@@ -2,7 +2,7 @@
     
 <div class="box box-success">
           <div class="box-header with-border">
-            <h4 class="box-tittle"><i class="fa fa-medkit"></i> Data Stok Barang</h4>
+            <h4 class="box-tittle"><i class="fa fa-medkit"></i> Data Pemeriksaan</h4>
               <div class="box-tools pull-right">
                   <a href="" data-toggle="modal" data-target="#modal-tambah-pemeriksaan"><button type="button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Tambah Pmeriksaan</button></a>
               </div>
