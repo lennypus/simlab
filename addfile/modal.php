@@ -125,7 +125,7 @@
                         <input type="text" class="form-control" id="alamat_update" maxlength="200" placeholder="Alamat Lengkap">
                       </div>
                   </div>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                       <label for="" class="col-sm-3 control-label">Nama Ayah</label>
                       <div class="col-sm-8">
                         <input type="text" class="form-control" id="nama_ayah_update" maxlength="200" placeholder="Nama Orang Tua - Ayah">
@@ -136,7 +136,7 @@
                       <div class="col-sm-8">
                         <input type="text" class="form-control" id="nama_ibu_update" maxlength="200" placeholder="Nama Orang Tua - Ibu">
                       </div>
-                  </div>
+                  </div> -->
               </form>
           </div>
           <div class="modal-footer">

@@ -10,6 +10,7 @@
 
   <link rel="stylesheet" href="plugins/datatables/jquery.dataTables.css">
   <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
 
   <!-- Select2 Category -->
   <link href="plugins/select2/css/select2.min.css" rel="stylesheet" />
@@ -270,6 +271,7 @@
 <script src="addfile/grafik/chart-siswa.js"></script>
 <script src="addfile/barang.js"></script>
 <script src="addfile/pemeriksaan.js"></script>
+<script src="addfile/transaksi.js"></script>
 
 
 <!-- AdminLTE App -->
