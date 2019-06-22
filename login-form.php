@@ -36,6 +36,7 @@
           $login->execute();
           $data = $login->fetch(PDO::FETCH_ASSOC);
           if (COUNT($data['username']) == 1 && $password == $data['password']) {
+              $_SESSION['id_logged'] = $data['id_admin'];
               $_SESSION['username'] = $data['username'];
               $_SESSION['level'] = $data['level'];
               $_SESSION['nama'] = $data['nama'];

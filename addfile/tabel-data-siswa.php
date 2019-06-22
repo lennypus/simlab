@@ -31,6 +31,7 @@
           <td><?php echo $data['alamat']; ?></td>
           <td><button type="button" id="<?php echo $data['nis']; ?>" class="btn btn-warning btn-sm detail-siswa" data-toggle="modal" data-target="#modal-update-siswa"><span class="glyphicon glyphicon-edit" aria-hidden="true"></button>
             <button type="button" id="<?php echo $data['nis']; ?>" class="btn btn-danger btn-sm hapus-siswa"><span class="glyphicon glyphicon-trash" aria-hidden="true"></button>
+            <a href="home.php?page=transaksi&pasien=<?=$data['nis']?>"  class="btn btn-primary btn-sm"><span class="fa fa-medkit" aria-hidden="true"> New Invoice</a>
             </td>
           </td>
         </tr>

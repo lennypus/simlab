@@ -4,7 +4,7 @@
 <li <?php echo $class ?>><a href="home.php?page=chart"><i class="fa fa-pie-chart"></i> <span>Chart</span></a></li>
 <li class="treeview"><a href=""><i class="fa fa-line-chart"></i> <span>Transaksi</span></a>
     <ul class="treeview-menu">
-            <li><a href="home.php?page=transaksi"><i class="fa fa-circle-o"></i><span>Transaksi</span></a></li>
+            <!-- <li><a href="home.php?page=transaksi"><i class="fa fa-circle-o"></i><span>Transaksi</span></a></li> -->
             <li><a href="home.php?page=laporan"><i class="fa fa-circle-o"></i><span>Laporan</span></a></li>
     </ul>
 </li>

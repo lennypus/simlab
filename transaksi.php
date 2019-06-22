@@ -1,21 +1,33 @@
 <?php
+    if(!isset($_GET['pasien'])){
+        echo '<script>window.location.replace("index.php");</script>';
+    }
     include 'addfile/koneksi.php';
-    if(empty($_SESSION['kunci'])){
-        
+    $q = $koneksi->query("SELECT * FROM tb_ordertmp ORDER BY session DESC LIMIT 1");
+    $last = $q->fetch();
+
+    if(empty($last['session'])){
         $_SESSION['kunci'] = date('Ymd');
         $key = $_SESSION['kunci'];
     }else{
-        $key = $_SESSION['kunci'];
+        if(empty($_SESSION['kunci'])){
+            $key = $last['session'] + 1;
+            $_SESSION['kunci'] = $key;
+        }else{
+            $key = $_SESSION['kunci'];
+        }
     }
 
-        $q = $koneksi->query("SELECT * FROM tb_ordertmp ORDER BY session DESC LIMIT 1");
-        $last = $q->fetch();
-        if($last['session'] <= $key){
-            $selisih =  $key - $last['session'];
-            // echo $last['session'];
-            $key = $selisih + 1 + $key;
-            $_SESSION['kunci'] = $key;
-        }
+    
+
+        // $q = $koneksi->query("SELECT * FROM tb_ordertmp ORDER BY session DESC LIMIT 1");
+        // $last = $q->fetch();
+        // if($last['session'] <= $key){
+        //     $selisih =  $key - $last['session'];
+        //     // echo $last['session'];
+        //     $key = $selisih + 1 + $key;
+        //     $_SESSION['kunci'] = $key;
+        // }
 
 ?>
 
@@ -36,12 +48,12 @@
                 <div class="transaksi">
                     <div class="row">
 
-                        <div class="col-xs-6">
+                        <div class="col-md-6 col-xs-12">
                             <!-- <form> -->
                                 <div class="form-group">
                                     <input type="hidden" value="<?php echo $key ?>" id="sesi">
                                     <label>Profil</label>
-                                    <select class="form-control select2" id="jp" name="jp">
+                                    <select class="form-control select2 col-xs-6" id="jp" name="jp">
                                         <option> - Pilih Profil Pemeriksaan - </option>
                                         <?php
                                             
@@ -65,11 +77,12 @@
                                     </div> -->
                             <!-- </form> -->
                         </div>
-
-                        <div class="col-xs-6">
+                        
+                        <div style="padding-top:15px" class="col-md-6 col-xs-12">
                             
                             <div id="table-cart"></div>
-                                
+                            
+                            <button class="col-xs-12 btn btn-success pembayaran">Bayar</button>
                         </div>
 
                     </div>                   
