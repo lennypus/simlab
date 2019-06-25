@@ -40,31 +40,6 @@ $(document).ready(function(e) {
     }
   });
 
-  $('.pembayaran').click (function() {
-    var total = $("#sumtotal").val();
-    var pasien = "<?php echo $_GET['pasien'] ?>";
-
-      $.ajax({
-        type: "POST",
-        url: "addfile/crud-transaksi.php?eks=bayar",
-        data: "total="+total+"&pasien="+pasien,
-        success: function () {
-          $.ajax({
-            type: "GET",
-            url: "addfile/tabel-cart.php",
-            success: function (data){
-              $('#table-cart').html(data)
-            }
-          });
-        },
-        error: function (msg){
-            alert(msg);
-        }
-      });
-
-  });
-
-
 
   function remove(id){
     $.ajax({

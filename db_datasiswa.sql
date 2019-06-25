@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Waktu pembuatan: 22 Jun 2019 pada 10.18
+-- Waktu pembuatan: 25 Jun 2019 pada 15.08
 -- Versi server: 10.3.14-MariaDB
 -- Versi PHP: 7.3.5
 
@@ -63,16 +63,17 @@ CREATE TABLE IF NOT EXISTS `tb_barang` (
   `satuan` varchar(11) NOT NULL,
   `exp` date NOT NULL,
   PRIMARY KEY (`id_barang`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_barang`
 --
 
 INSERT INTO `tb_barang` (`id_barang`, `nama_barang`, `stok`, `satuan`, `exp`) VALUES
-(1, 'Spuit 50ml', 124, 'pcs', '2019-04-09'),
+(1, 'Spuit 50ml', 107, 'pcs', '2019-04-09'),
 (2, 'Ultramilk', 112, 'liter', '2019-06-04'),
-(3, 'Obat tidur', 28, 'pcs', '2019-06-29');
+(3, 'Obat tidur', 23, 'pcs', '2019-06-29'),
+(6, 'Obat perut', 0, 'Liter', '2019-06-29');
 
 -- --------------------------------------------------------
 
@@ -112,14 +113,15 @@ CREATE TABLE IF NOT EXISTS `tb_invoice` (
   `total` int(11) NOT NULL,
   `datecreate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id_invoice`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_invoice`
 --
 
 INSERT INTO `tb_invoice` (`id_invoice`, `id_kasir`, `id_pasien`, `total`, `datecreate`) VALUES
-(00001, 2, 'ID-0002', 20000, '2019-06-15 15:48:21');
+(00003, 1, 'ID-0002', 20000, '2019-06-24 16:41:48'),
+(00004, 1, 'ID-0002', 30000, '2019-06-24 16:43:34');
 
 -- --------------------------------------------------------
 
@@ -129,13 +131,21 @@ INSERT INTO `tb_invoice` (`id_invoice`, `id_kasir`, `id_pasien`, `total`, `datec
 
 DROP TABLE IF EXISTS `tb_lab`;
 CREATE TABLE IF NOT EXISTS `tb_lab` (
-  `id_lab` int(11) NOT NULL,
+  `id_lab` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
   `id_pasien` varchar(11) NOT NULL,
   `id_dokter` int(11) DEFAULT NULL,
-  `tanggal` date NOT NULL,
+  `tanggal` date DEFAULT NULL,
   `isValidasi` tinyint(1) NOT NULL,
+  `session` varchar(21) NOT NULL,
   PRIMARY KEY (`id_lab`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_lab`
+--
+
+INSERT INTO `tb_lab` (`id_lab`, `id_pasien`, `id_dokter`, `tanggal`, `isValidasi`, `session`) VALUES
+(0005, 'ID-0002', NULL, NULL, 0, '20190646');
 
 -- --------------------------------------------------------
 
@@ -149,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `tb_ordertmp` (
   `id_profile` int(11) NOT NULL,
   `session` varchar(32) NOT NULL,
   PRIMARY KEY (`id_order`)
-) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=72 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tb_ordertmp`
@@ -175,7 +185,22 @@ INSERT INTO `tb_ordertmp` (`id_order`, `id_profile`, `session`) VALUES
 (46, 2, '20190640'),
 (45, 4, '20190640'),
 (48, 4, '20190641'),
-(49, 2, '20190641');
+(49, 2, '20190641'),
+(56, 1, '20190642'),
+(57, 2, '20190642'),
+(58, 4, '20190642'),
+(59, 2, '20190643'),
+(60, 4, '20190643'),
+(61, 1, '20190643'),
+(62, 1, '20190644'),
+(63, 2, '20190644'),
+(64, 4, '20190645'),
+(65, 1, '20190646'),
+(66, 2, '20190647'),
+(68, 1, '20190648'),
+(69, 2, '20190649'),
+(70, 4, '20190649'),
+(71, 1, '20190649');
 
 -- --------------------------------------------------------
 

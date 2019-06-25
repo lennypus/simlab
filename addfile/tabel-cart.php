@@ -48,7 +48,10 @@
           sum += parseFloat(value);
       }
       document.getElementById('sumtotal').innerHTML = sum;
+      
+    //   var h = document.cookie = "sumtotal="+sum;
       console.log(sum);
+    //   console.log(h); 
   });
 
 </script>

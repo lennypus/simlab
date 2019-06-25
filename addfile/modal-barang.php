@@ -151,7 +151,7 @@
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">Nama Barang</label>
                             <div class="col-sm-8">
-                            <select name="id" id="id_barang" class="form-control select2">
+                            <select name="id" id="id_keluar" class="form-control select2">
                                 <?php
                                 include_once 'koneksi.php';
                                 $tampil = $koneksi->prepare("SELECT * FROM tb_barang");
@@ -168,7 +168,7 @@
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">Stok Keluar</label>
                             <div class="col-sm-8">
-                              <input type="number" class="form-control" id="nilai" placeholder="Stok barang keluar">
+                              <input type="number" class="form-control" id="keluar" placeholder="Stok barang keluar">
                             </div>
                         </div>
                     </form>

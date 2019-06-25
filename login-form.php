@@ -31,7 +31,7 @@
           $error="Username and Password is Required";
         }
         else {
-          $login = $koneksi->prepare("SELECT username, password, level, nama FROM tb_admin WHERE username=:username");
+          $login = $koneksi->prepare("SELECT username, password, level, nama, id_admin FROM tb_admin WHERE username=:username");
           $login->bindParam(':username',$username);
           $login->execute();
           $data = $login->fetch(PDO::FETCH_ASSOC);

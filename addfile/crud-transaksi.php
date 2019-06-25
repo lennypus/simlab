@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'koneksi.php';
 
 $eks = $_GET['eks'];
@@ -69,6 +70,32 @@ elseif ($eks=="ganti") {
     $tampil->setFetchMode(PDO::FETCH_ASSOC);
     $data = $tampil->fetch(PDO::FETCH_ORI_NEXT);
     echo json_encode($data);
+}
+
+elseif ($eks=="bayar") {
+  $total = $_POST['total'];
+  $pasien = $_POST['pasien'];
+  $kasir = $_SESSION['id_logged'];
+  $session = $_SESSION['kunci'];
+  // INSERT INTO `tb_lab`(`id_pasien`,`isValidasi`, `session`) VALUES ('ID-0002',0,2121212)
+  $invoice = $koneksi->prepare("INSERT tb_invoice (id_kasir,id_pasien,total) VALUES (:kasir,:pasien,:total)");
+  $lab = $koneksi->prepare("INSERT INTO tb_lab (id_pasien,isValidasi, session) VALUES (:pasien,0,:session)");
+
+  $invoice->bindParam(":kasir",$kasir);
+  $invoice->bindParam(":pasien",$pasien);
+  $invoice->bindParam(":total",$total);
+
+  $lab->bindParam(":pasien",$pasien);
+  $lab->bindParam(":session",$session);
+
+  if(!$invoice->execute()){
+      var_dump($invoice->errorInfo());
+  }else{
+      unset($_SESSION['kunci']);
+
+  }
+
+
 }
 
 

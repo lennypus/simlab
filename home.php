@@ -1,3 +1,4 @@
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -66,7 +67,7 @@
               <li class="user-header">
                 <img src="dist/img/mahruskh.jpg" class="img-circle" alt="User Image">
                 <p>
-                  <?php echo $_SESSION['nama']. ' - '. $_SESSION['level'] ?> 
+                  <?php echo $_SESSION['nama']. ' - '. $_SESSION['level']. ' - '.$_SESSION['id_logged'] ?> 
                 </p>
               </li>
               <!-- Menu Footer-->
@@ -99,7 +100,7 @@
         <div class="pull-left info">
           <p><?php   echo $_SESSION['nama'] ?></p>
           <!-- Status -->
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="#"><i class="fa fa-circle text-success"></i> <?php echo ucfirst($_SESSION['level']) ?></a>
         </div>
       </div>
 
@@ -272,6 +273,36 @@
 <script src="addfile/barang.js"></script>
 <script src="addfile/pemeriksaan.js"></script>
 <script src="addfile/transaksi.js"></script>
+
+<!-- Fungsi Pembayaran -->
+<script>
+    $('.pembayaran').click (function() {
+    var koki = document.cookie;
+    console.log(koki);
+    var total = $("#sumtotal").text();
+    var pasien = "<?php echo $_GET['pasien'] ?>";
+
+      $.ajax({
+        type: "POST",
+        url: "addfile/crud-transaksi.php?eks=bayar",
+        data: "total="+total+"&pasien="+pasien,
+        success: function () {
+          $.ajax({
+            type: "GET",
+            url: "addfile/tabel-cart.php",
+            success: function (data){
+              $('#table-cart').html(data);
+              alert("Transaksi Berhasil");
+            }
+          });
+        },
+        error: function (msg){
+            alert(msg);
+        }
+      });
+
+  });
+</script>
 
 
 <!-- AdminLTE App -->

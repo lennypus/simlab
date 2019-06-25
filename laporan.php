@@ -15,21 +15,13 @@
                 <div class="data-">
                     <!-- Tabel Laporan -->
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered data-transaksi">
-                            <thead>
-                                <tr class="success">
-                                    <td>Tanggal</td>
-                                    <td>No. RM</td>
-                                    <td>Pasien</td>
-                                    <td>Total</td>
-                                    <td>Kasir</td>
-                                    <td>Aksi</td>
-                                </tr>
-                            </thead>
-                            <tbody id="table-transaksi">
-                                
-                            </tbody>
-                        </table>
+                        <?php 
+                            $laporan = isset($_GET['page']);                  
+                            if( $laporan == 'laporan'){
+                                include 'addfile/tabel-data-transaksi.php';
+                            }
+                        
+                        ?>
                     </div>
                     
                 </div>

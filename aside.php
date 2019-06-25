@@ -19,3 +19,8 @@
         <li><a href="home.php?page=barang"><i class="fa fa-medkit"></i><span> Stok Barang</span></li></a></li>
     </ul>
 </li>
+<li><a href="#"><i class="fa fa-user"></i> <span>Administrator</span></a>
+    <ul class="treeview-menu">
+        <li><a href="home.php?page=barang"><i class="fa fa-medkit"></i><span> Stok Barang</span></li></a></li>
+    </ul>
+</li>
