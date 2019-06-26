@@ -8,15 +8,13 @@ $(document).ready(function(e) {
       var level = $("#level").val().trim();
   
       if (nama=="") {
-        $("#nama").focus(function() {
-            $(this).next("span").css("display", "inline").fadeOut(1000);
-          });
+        alert('Nama Harus disii');
       }
       else {
         $.ajax({
           type: "POST",
-          url: "addfile/crud-pemeriksaan.php?eks=tambah",
-          data: "jp="+jp+"&harga="+harga+"&unit="+unit+"&rujukan="+rujukan+"&profil="+profil,
+          url: "addfile/crud-user.php?eks=tambah",
+          data: "nama="+nama+"&username="+username+"&password="+password+"&level="+level,
           success: function (msg) {
             alert('Data berhasil disimpan');
             location.reload();

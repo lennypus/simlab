@@ -273,6 +273,7 @@
 <script src="addfile/barang.js"></script>
 <script src="addfile/pemeriksaan.js"></script>
 <script src="addfile/transaksi.js"></script>
+<script src="addfile/data-user.js"></script>
 
 <!-- Fungsi Pembayaran -->
 <script>
