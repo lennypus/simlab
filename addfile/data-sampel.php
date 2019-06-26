@@ -26,7 +26,7 @@
               echo '<span style="border-radius:15px" class="btn btn-xs btn-danger">TERVALIDASI</span>';
           } ?></td>
           <td>
-                <a href=""><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Laboratorium </button></a>
+                <a href="home.php?page=input&lab=<?php echo $data['id_lab'] ?>&session=<?php echo $data['session'] ?>"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Laboratorium </button></a>
           </td>
           </td>
         </tr>

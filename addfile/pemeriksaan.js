@@ -33,13 +33,13 @@ $(document).ready(function(e) {
     // end add --------------------------------
   
     //edit-update
-    $('.detail-pemeriksaan').click( function () {
+    $('.detail-user').click( function () {
       var id = this.id;
   
       $.ajax({
         type: "POST",
-        url: "addfile/crud-pemeriksaan.php?eks=detail",
-        data: "id_pemeriksaan="+id,
+        url: "addfile/crud-user.php?eks=detail",
+        data: "id_user="+id,
         dataType: "json",
         success: function (data) {
           $('#id').val(data.id_pemeriksaan);
@@ -57,7 +57,7 @@ $(document).ready(function(e) {
     // -----------------------------
   
     // update 
-    $('.update-pemeriksaan').click(function () {
+    $('.update-ss').click(function () {
         var id = $("#id").val().trim();
         var jp = $("#jenis_pem_update").val().trim();
         var harga = $("#harga_update").val().trim();
@@ -77,7 +77,7 @@ $(document).ready(function(e) {
     //----------------------
   
     // hapus pemeriksaan ------------------
-    $('.hapus-pemeriksaan').click(function() {
+    $('.hapus-ss').click(function() {
       var id = this.id;
       var barang = this.name;
       var conf = confirm("Yakin Hapus Data Barang : " +barang);
