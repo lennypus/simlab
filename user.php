@@ -1,0 +1,26 @@
+<div class="col-md-12 col-sm-6">
+
+        <div class="box box-success">
+            <div class="box-header with-border">
+                <h4 class="box-tittle"><i class="fa fa-medkit"></i> Laporan Transaksi</h4>
+                <div class="box-tools pull-right">
+                    <!-- <a href="" data-toggle="modal" data-target="#modal-keluar-barang"><button type="button" class="btn btn-warning btn-sm"><i class="fa fa-medkit"></i> Barang Keluar </button></a> -->
+                    <a href="" data-toggle="modal" data-target="#modal-tambah-user"><button type="button" class="btn btn-primary btn-sm tes"><i class="fa fa-user"></i> Tambah User </button></a>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="data-">
+                    <!-- Tabel Laporan -->
+                    <div class="table-responsive">
+                        <?php
+                                include 'addfile/tabel-data-user.php';
+
+                        ?>
+                    </div>
+                    
+                </div>
+            </div>
+    
+        </div>
+    </div>
+    <?php include 'addfile/modal-user.php'; ?>
