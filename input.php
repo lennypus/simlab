@@ -17,26 +17,30 @@
                     $data = $tampil->Fetch(PDO::FETCH_ASSOC);
 
                     $session = $_GET['session'];
-                    $profil =$koneksi->prepare("SELECT * FROM tb_ordertmp JOIN tb_pemeriksaan ON tb_pemeriksaan.id_pemeriksaan=tb_ordertmp.id_profile WHERE tb_ordertmp.session=:session");
+                    $profil =$koneksi->prepare("SELECT tb_pemeriksaan.jenis_pemeriksaan as profil, tb_pemeriksaan.unit as unit, tb_pemeriksaan.nilai_rujukan as rujukan, tb_pemeriksaan.id_pemeriksaan FROM tb_ordertmp JOIN tb_pemeriksaan ON tb_pemeriksaan.id_pemeriksaan=tb_ordertmp.id_profile WHERE tb_ordertmp.session=:session");
                     $profil->bindParam(':session',$session);
                     $profil->execute();
-                    $results = $profil->Fetch(PDO::FETCH_ASSOC);
-                    // print_r($result);
+                    $results = $profil->fetchAll(PDO::FETCH_ASSOC);
+                    // print_r($results);
                 ?>
                 <table class="table table-borderless">
                     <tr><td>Nama</td><td>:</td><td><?= $data['nama']?></td></tr>
                     <tr><td>ID Lab</td><td>:</td><td><?= $_GET['lab']?></td></tr>
                 </table>
-                <form action="" method="post">
-                    <?php foreach($results as $key => $result){
+                <center><h2>Input Pemeriksaan</h2></center>
+                <br>
+                <form class="form-horizontal" action="" method="post">
+                    <?php $index = 0;foreach($results as $key => $result){
                         ?>
                         <div class="form-group">
-                            <label for="" class="col-sm-3 control-label"><?php echo $key ?></label>
-                            <div class="col-sm-8">
-                              <input type="text" class="form-control" name="<?php $key ?>">
+                            <label for="" class="col-sm-3 control-label"><?php echo $results[$index]['profil'] ?></label>
+                            <div class="col-sm-6">
+                              <input type="text" class="form-control" name="hasil[]">
+                              <input type="hidden" name="profil[]" value="<?php echo $results[$index]['id_pemeriksaan'] ?>">
                             </div>
+                            <label for="" class="col-sm-1 control-label"><?php echo $results[$index]['unit'] ?></label>
                         </div>
-                    <?php } ?>
+                    <?php $index++; } ?>
                 </form>
             </div>
     

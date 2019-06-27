@@ -77,7 +77,7 @@ elseif ($eks=="bayar") {
   $pasien = $_POST['pasien'];
   $kasir = $_SESSION['id_logged'];
   $session = $_SESSION['kunci'];
-  // INSERT INTO `tb_lab`(`id_pasien`,`isValidasi`, `session`) VALUES ('ID-0002',0,2121212)
+  // INSERT INTO `tb_lab`(`id_pasien`,`isValidasi`, `session`) VALUES (:paien,0,:session);
   $invoice = $koneksi->prepare("INSERT tb_invoice (id_kasir,id_pasien,total) VALUES (:kasir,:pasien,:total)");
   $lab = $koneksi->prepare("INSERT INTO tb_lab (id_pasien,isValidasi, session) VALUES (:pasien,0,:session)");
 
@@ -88,8 +88,9 @@ elseif ($eks=="bayar") {
   $lab->bindParam(":pasien",$pasien);
   $lab->bindParam(":session",$session);
 
-  if(!$invoice->execute()){
+  if(!$invoice->execute() || !$lab->execute()){
       var_dump($invoice->errorInfo());
+      var_dump($lab->errorInfo());
   }else{
       unset($_SESSION['kunci']);
 
