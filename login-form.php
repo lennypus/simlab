@@ -45,8 +45,8 @@
           }
           else {
             $error="Username or Password is Incorrect";
-	    $username = "";
-	    $password = "";
+	          $username = "";
+	          $password = "";
 		
           }
         }

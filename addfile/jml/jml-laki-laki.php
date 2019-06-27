@@ -1,9 +1,9 @@
 <?php
 include '../koneksi.php';
-$jk="Laki - Laki";
-$laki = $koneksi->prepare("SELECT COUNT(nis) FROM tb_siswa WHERE jk=:jk");
-$laki->bindParam(':jk',$jk);
+// $jk="Laki - Laki";
+$laki = $koneksi->prepare("SELECT SUM(total) FROM tb_invoice");
+// $laki->bindParam(':jk',$jk);
 $laki->execute();
 $data = $laki->fetch(PDO::FETCH_NUM);
-echo $data[0];
+echo rupiah($data[0]);
 ?>

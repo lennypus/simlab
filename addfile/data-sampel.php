@@ -20,13 +20,20 @@
         <tr>
           <td><?php echo $data['id_lab']; ?></td>
           <td><?php echo $data['pasien']; ?></td>
-          <td><?php if($data['isValidasi'] == 0){
-                echo '<span style="border-radius:15px" class="btn btn-xs btn-success">PEMERIKSAAN</span>';
+          <td><?php if(!empty($data['tanggal']) && $data['isValidasi'] == 0){
+                echo '<span style="border-radius:15px" class="btn btn-xs btn-warning">PROSES VALIDASI</span>';
+          }elseif($data['isValidasi'] == 0){
+              echo '<span style="border-radius:15px" class="btn btn-xs btn-primary">PEMERIKSAAN</span>';
           }else{
-              echo '<span style="border-radius:15px" class="btn btn-xs btn-danger">TERVALIDASI</span>';
+            echo '<span style="border-radius:15px" class="btn btn-xs btn-danger">TERVALIDASI</span>';
           } ?></td>
           <td>
-                <a href="home.php?page=input&lab=<?php echo $data['id_lab'] ?>&session=<?php echo $data['session'] ?>"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Laboratorium </button></a>
+                <a href="home.php?page=input&lab=<?php echo $data['id_lab'] ?>&session=<?php echo $data['session'] ?>"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Periksa </button></a>
+                <?php if(!empty($data['tanggal'])){
+                  ?>
+                      <a href="home.php?page=hasil&lab=<?php echo $data['id_lab'] ?>&session=<?php echo $data['session'] ?>"><button type="button" class="btn btn-success btn-sm"><i class="fa fa-search"></i> Hasil Laboratorium </button></a>
+                  <?php
+                } ?>
           </td>
           </td>
         </tr>

@@ -29,21 +29,31 @@
                 </table>
                 <center><h2>Input Pemeriksaan</h2></center>
                 <br>
-                <form class="form-horizontal" action="" method="post">
+                <form class="form-horizontal" action="addfile/crud-tes.php" method="post">
+                    <input type="hidden" name="id_lab" value="<?php echo $_GET['lab'] ?>">
                     <?php $index = 0;foreach($results as $key => $result){
                         ?>
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label"><?php echo $results[$index]['profil'] ?></label>
                             <div class="col-sm-6">
-                              <input type="text" class="form-control" name="hasil[]">
-                              <input type="hidden" name="profil[]" value="<?php echo $results[$index]['id_pemeriksaan'] ?>">
+                              <input type="text" required class="form-control" name="hasil[]">
+                              <input id="mm" type="hidden" name="profil[]" value="<?php echo $results[$index]['id_pemeriksaan'] ?>">
                             </div>
-                            <label for="" class="col-sm-1 control-label"><?php echo $results[$index]['unit'] ?></label>
+                            <label for="mm" class="col-sm-1 control-label"><?php echo $results[$index]['unit'] ?></label>
+                        
                         </div>
                     <?php $index++; } ?>
+                    <div class="form-group">
+                        <div class="col-xs-7"></div>
+                        <div class="col-sm-2">
+                            <input type="submit" class="col-xs-12 btn btn-success" name="submit" value="simpan">
+                        </div>
+                    </div>
                 </form>
             </div>
     
         </div>
     </div>
     <?php include 'addfile/modal-transaksi.php'; ?>
+    <?php
+    ?>

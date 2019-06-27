@@ -141,9 +141,9 @@
     <div class="row">
       <div class="col-sm-6 col-md-4">
         <div class="info-box bg-red">
-          <span class="info-box-icon fa fa-male"></span>
+          <span class="info-box-icon fa fa-money"></span>
           <div class="info-box-content">
-            <span class="info-box-text">Jumlah Sampel</span>
+            <span class="info-box-text">Jumlah Pendapatan</span>
             <span class="info-box-number"><div class="tampil-jml-laki-laki"></div></span>
           </div>
         </div>
@@ -153,7 +153,7 @@
         <div class="info-box bg-green">
           <span class="info-box-icon"><i class="fa fa-male"></i> <i class="fa fa-female"></i></span>
           <div class="info-box-content">
-            <span class="info-box-text">Total Seluruh Siswa </span>
+            <span class="info-box-text">Total Seluruh Pasien </span>
             <span class="info-box-number"><div class="tampil-jml-siswa"></div></span>
           </div>
         </div>
@@ -161,9 +161,9 @@
 
       <div class="col-sm-6 col-md-4">
         <div class="info-box bg-blue">
-          <span class="info-box-icon fa fa-female"></span>
+          <span class="info-box-icon fa fa-flask"></span>
           <div class="info-box-content">
-            <span class="info-box-text">Siswa Perempuan</span>
+            <span class="info-box-text">Total Sampel</span>
             <span class="info-box-number"><div class="tampil-jml-perempuan"></div></span>
           </div>
         </div>

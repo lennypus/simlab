@@ -3,7 +3,7 @@ include '../koneksi.php';
 
 $data_siswa = array();
 
-$tahun = $koneksi->prepare("SELECT  YEAR(tgl_lahir) AS Thn, COUNT(*) AS Jml_Thn  FROM tb_siswa GROUP BY YEAR(tgl_lahir) ASC");
+$tahun = $koneksi->prepare("SELECT  YEAR(tanggal) AS Thn, COUNT(*) AS Jml_Thn  FROM tb_lab GROUP BY YEAR(tanggal) ASC");
 $tahun->execute();
 $tahun->setFetchMode(PDO::FETCH_ASSOC);
 while ($data = $tahun->fetch(PDO::FETCH_ORI_NEXT)) {

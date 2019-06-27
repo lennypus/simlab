@@ -303,10 +303,23 @@
       });
 
   });
+  </script>
+  <script type="text/javascript">
 
- 
+  function checkDate() {
+      var date = new Date();
+      console.log(date.getDay());
+      console.log(date.getHours());
+      if(date.getDay() === 6 && date.getHours() === 19) {
+          alert("REMEMBER! Backup!!");
+      }
+  }
 
-</script>
+  var dateLoop = setInterval(function() {
+      checkDate();
+  },5000);
+
+  </script>
 
 
 <!-- AdminLTE App -->
