@@ -52,13 +52,13 @@ elseif ($eks=="remove") {
 }
 
 elseif ($eks=="detail") {
-     $id = $_POST['id_pemeriksaan'];
-     $tampil =$koneksi->prepare("SELECT * FROM tb_pemeriksaan WHERE id_pemeriksaan=:id");
-     $tampil->bindParam(':id',$id);
-     $tampil->execute();
-     $data = $tampil->Fetch(PDO::FETCH_ASSOC);
-     echo json_encode($data);
-   }
+  $id = $_POST['id_admin'];
+  $tampil =$koneksi->prepare("SELECT * FROM tb_admin WHERE id_admin=:id");
+  $tampil->bindParam(':id',$id);
+  $tampil->execute();
+  $data = $tampil->Fetch(PDO::FETCH_ASSOC);
+  echo json_encode($data);
+}
 
 elseif ($eks=="ganti") {
     $id = $_GET['id'];

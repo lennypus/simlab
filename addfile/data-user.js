@@ -28,31 +28,31 @@ $(document).ready(function(e) {
     // end add --------------------------------
   
     //edit-update
-    $('.detail-pemeriksaan').click( function () {
+    $('.detail-user').click( function () {
       var id = this.id;
   
       $.ajax({
         type: "POST",
-        url: "addfile/crud-pemeriksaan.php?eks=detail",
-        data: "id_pemeriksaan="+id,
+        url: "addfile/crud-user.php?eks=detail",
+        data: "id_admin="+id,
         dataType: "json",
         success: function (data) {
-          $('#id').val(data.id_pemeriksaan);
-          $('#jenis_pem_update').val(data.jenis_pemeriksaan);
-          $('#harga_update').val(data.harga);
-          $('#unit_update').val(data.unit);
-          $('#rujukan_update').val(data.nilai_rujukan);
-          var profil = data.id_profil;
-          document.cookie  = "select="+profil;
+          $('#id').val(data.id_admin);
+          $('#nama_update').val(data.nama);
+          $('#password_update').attr('disabled','true');
+          $('#username_update').val(data.username);
+          // $('#level_update').val(data.level);
+          // var profil = data.id_profil;
+          document.cookie  = "level="+data.level;
           //   $('#profil_update').val(data.id_profil);
-          $('#modal-update-pemeriksaan').modal("show");
+          $('#modal-update-user').modal("show");
         }
       });
     });
     // -----------------------------
   
     // update 
-    $('.update-pemeriksaan').click(function () {
+    $('.update-user').click(function () {
         var id = $("#id").val().trim();
         var jp = $("#jenis_pem_update").val().trim();
         var harga = $("#harga_update").val().trim();
@@ -72,7 +72,7 @@ $(document).ready(function(e) {
     //----------------------
   
     // hapus pemeriksaan ------------------
-    $('.hapus-pemeriksaan').click(function() {
+    $('.hapus-user').click(function() {
       var id = this.id;
       var barang = this.name;
       var conf = confirm("Yakin Hapus Data Barang : " +barang);

@@ -95,4 +95,24 @@ $(document).ready(function(e) {
     });
     //------------------
   
+    $('.validasi').click(function() {
+      var id = this.id;
+      // var barang = this.name;
+      var conf = confirm("Memvalidasi Sampel Pemeriksaan");
+      if (conf==true) {
+          $.ajax({
+            type: "POST",
+            url: "addfile/crud-pemeriksaan.php?eks=validasi",
+            data: "id_lab="+id,
+            success: function (msg) {
+              alert('Status laboratorium berhasil divalidasi');
+              // location.reload();
+            }, error : function (msg){
+                alert(msg);
+            }
+          });
+      }
+    });
+    //------------------
+
   });

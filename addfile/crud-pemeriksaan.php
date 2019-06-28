@@ -1,6 +1,6 @@
 <?php
 include 'koneksi.php';
-
+session_start();
 $eks = $_GET['eks'];
 
 if ($eks=="tambah") {
@@ -38,7 +38,7 @@ elseif ($eks=="detail") {
      $tampil->execute();
      $data = $tampil->Fetch(PDO::FETCH_ASSOC);
      echo json_encode($data);
-   }
+}
 
 elseif ($eks=="update") {
     $id = $_POST['id'];
@@ -81,6 +81,22 @@ elseif ($eks=="keluar") {
      $tampil->execute();
      $data = $tampil->Fetch(PDO::FETCH_ASSOC);
      echo json_encode($data);
+}
+elseif ($eks=="validasi"){
+  $id = $_POST['id_lab'];
+  $tanggal = date('Y-m-d');
+  $dokter = $_SESSION['nama'];
+  $valid = 1;
+  $tampil =$koneksi->prepare("UPDATE tb_lab SET id_dokter =:dokter, isValidasi = :valid, tanggal = :tanggal  WHERE id_lab = :id");
+  $tampil->bindParam(':id',$id);
+  $tampil->bindParam(':tanggal',$tanggal);
+  $tampil->bindParam(':dokter',$dokter);
+  $tampil->bindParam(':valid',$valid);
+  if($tampil->execute()){
+      return 'sukses';
+  }else{
+    return 'Error: '.mysqli_error($koneksi);
+  }
 }
 
 

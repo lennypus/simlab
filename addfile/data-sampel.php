@@ -28,11 +28,15 @@
             echo '<span style="border-radius:15px" class="btn btn-xs btn-danger">TERVALIDASI</span>';
           } ?></td>
           <td>
-                <a href="home.php?page=input&lab=<?php echo $data['id_lab'] ?>&session=<?php echo $data['session'] ?>"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Periksa </button></a>
                 <?php if(!empty($data['tanggal'])){
                   ?>
+                      <a href="home.php?page=tes&lab=<?php echo $data['id_lab'] ?>&session=<?php echo $data['session'] ?>"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Periksa </button></a>
                       <a href="home.php?page=hasil&lab=<?php echo $data['id_lab'] ?>&session=<?php echo $data['session'] ?>"><button type="button" class="btn btn-success btn-sm"><i class="fa fa-search"></i> Hasil Laboratorium </button></a>
                   <?php
+                }else{
+                ?>
+                    <a href="home.php?page=input&lab=<?php echo $data['id_lab'] ?>&session=<?php echo $data['session'] ?>"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-search"></i> Periksa </button></a>
+                <?php   
                 } ?>
           </td>
           </td>

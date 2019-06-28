@@ -57,40 +57,45 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h3 class="modal-title">Detail Barang</h3>
+            <h3 class="modal-title">Detail User</h3>
           </div>
           <div class="modal-body">
-            <form class="form-horizontal">
-                    <div class="form-group">
-                        <input type="hidden" id="id_update">
-                            <label for="" class="col-sm-3 control-label">Nama Barang</label>
-                            <div class="col-sm-8">
-                            <input type="text" class="form-control" id="nama_update" maxlength="200" placeholder="Nama Barang">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Stok</label>
-                            <div class="col-sm-8">
-                              <input type="number" class="form-control" id="stok_update" placeholder="Stok barang">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Kadaluarsa Barang</label>
-                            <div class="col-sm-4">
-                                  <input type="date" class="form-control exp" id="exp_update">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Satuan Barang</label>
-                            <div class="col-sm-8">
-                              <input type="text" class="form-control" id="satuan_update" maxlength="200" placeholder="Stok barang">
-                            </div>
-                        </div>
-              </form>
-          </div>
+                <form class="form-horizontal">
+                    <!-- -->
+                      <div class="form-group">
+                          <label for="" class="col-sm-3 control-label">Nama User</label>
+                          <div class="col-sm-8">
+                          <input type="text" class="form-control"  id="nama_update" maxlength="200" placeholder="Nama Pengguna">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="" class="col-sm-3 control-label">Username</label>
+                          <div class="col-sm-8">
+                            <input type="text" class="form-control" id="username_update" placeholder="Username">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="" class="col-sm-3 control-label">Password<span style="color:red">*</span></label>
+                          <div class="col-sm-4">
+                                <input type="text" class="form-control" id="password_update" placeholder="Password">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="" class="col-sm-3 control-label">Fungsi</label>
+                          <div class="col-sm-8">
+                            <select name="level" id="level_update" class="form-control">
+                                <option value="">Pilih...</option>
+                                <option <?php if($_COOKIE['level'] == 'kasir'){echo 'selected';} ?> value="kasir">Kasir</option>
+                                <option <?php if($_COOKIE['level'] == 'dokter'){echo 'selected';} ?> value="dokter">Dokter</option>
+                                <option <?php if($_COOKIE['level'] == 'admin'){echo 'selected';} ?> value="admin">Admin</option>
+                            </select>
+                          </div>
+                      </div>
+                  </form>
+              </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batal</button>
-            <button type="button" class="btn btn-warning update-barang" data-dismiss="modal">UPDATE</button>
+            <button type="button" class="btn btn-warning update-user" data-dismiss="modal">UPDATE</button>
           </div>
         </div>
       </div>
