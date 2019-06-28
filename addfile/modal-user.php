@@ -85,9 +85,9 @@
                           <div class="col-sm-8">
                             <select name="level" id="level_update" class="form-control">
                                 <option value="">Pilih...</option>
-                                <option <?php if($_COOKIE['level'] == 'kasir'){echo 'selected';} ?> value="kasir">Kasir</option>
-                                <option <?php if($_COOKIE['level'] == 'dokter'){echo 'selected';} ?> value="dokter">Dokter</option>
-                                <option <?php if($_COOKIE['level'] == 'admin'){echo 'selected';} ?> value="admin">Admin</option>
+                                <option <?php if($_SESSION['level'] == 'kasir'){echo 'selected';} ?> value="kasir">Kasir</option>
+                                <option <?php if($_SESSION['level'] == 'dokter'){echo 'selected';} ?> value="dokter">Dokter</option>
+                                <option <?php if($_SESSION['level'] == 'admin'){echo 'selected';} ?> value="admin">Admin</option>
                             </select>
                           </div>
                       </div>
