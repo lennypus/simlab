@@ -1,7 +1,8 @@
 <?php
 session_start();
 include 'koneksi.php';
-$submit = isset($_POST['submit']);
+    $submit = isset($_POST['submit']);
+    
     if($submit == 'simpan'){
         $hasil = $_POST['hasil'];
         $profil = $_POST['profil'];
@@ -18,10 +19,22 @@ $submit = isset($_POST['submit']);
             // $data[] = array('id_pemeriksaan' => $profil[$i], 'hasil' => $hula);
             $i++;
         }
+        $date = date('Y-m-d');
         $qLab = "UPDATE tb_lab SET id_dokter=:id_dokter, tanggal=:tanggal";
         $lab = $koneksi->prepare($qLab);
         $lab->bindParam(':id_dokter',$_SESSION['nama']);
-        $lab->bindParam(':tanggal', date('Y-m-d'));
+        $lab->bindParam(':tanggal',$date );
+        $lab->execute();
         // print_r($data);
+    }else{
+        $id = $_POST['id'];
+        $hasil = $_POST['value'];
+        $sql = "UPDATE tb_test SET hasil=:hasil WHERE id_test=:id_test";
+        $edit = $koneksi->prepare($sql);
+        $edit->bindParam(':hasil',$hasil);
+        $edit->bindParam(':id_test',$id);
+        if(!$edit->execute()){
+            echo 'Error';
+        }   
     }
 ?>

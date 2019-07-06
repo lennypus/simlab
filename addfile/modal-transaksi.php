@@ -8,7 +8,7 @@
                   <h3 class="modal-title">Range Laporan</h3>
                 </div>
                 <div class="modal-body">
-                  <form class="form-horizontal">
+                  <form action="" class="form-horizontal">
                       <!-- -->
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">Dari Tanggal</label>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batal</button>
-                  <button type="button" class="btn btn-primary tambah-barang" data-dismiss="modal">Cari</button>
+                  <button type="submit" class="btn btn-primary tambah-barang" data-dismiss="modal">Cari</button>
                 </div>
               </div>
             </div>

@@ -124,7 +124,7 @@
     </section>
     <!-- /.sidebar -->
   </aside>
-
+  
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -144,8 +144,6 @@
     </section>
     <!-- Main content -->
   <section class="content">
-    <div class="row">
-      
       <?php
 
         if(isset($_GET['page'])){
@@ -306,6 +304,45 @@
   </script>
   <script type="text/javascript">
 
+  $('.inputhasil').on('change', function() {
+      var itemID = $(this).attr('id');
+      var itemVal = $(this).val();
+      var itemVal = itemVal.replace(/n/g, '<br />');
+      var itemVal = itemVal.replace(/&/g, 'and');
+      var itemstring = "id=" + itemID + "&value=" + itemVal;
+  
+      processChange(itemstring);
+  });
+
+  $('.notif').hide();
+
+  function processChange(itemstring){
+    //console.log(itemstring);
+    //return false;
+    $.ajax({
+        type: "POST",
+        url: "addfile/crud-tes.php",
+        data: itemstring,
+        complete: function(data) {
+            var Resp = data.responseText;
+            console.log(Resp);
+        },
+          success: function() {
+            $.notify("Data update","success");
+              // $('.notif').show(100);
+              // setTimeout(function() {
+              //     $('.notif').animate({
+              //         opacity: 1,
+              //     }, 500, function(){
+              //         $('.notif').hide(100);
+              //     });
+              // }, 1000);
+          }, error: function(msg){
+            $.notify(msg,"danger");
+          }
+      });
+  }
+
   function checkDate() {
       var date = new Date();
       console.log(date.getDay());
@@ -324,5 +361,6 @@
 
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
+<script src="dist/js/notify.min.js"></script>
 </body>
 </html>

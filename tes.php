@@ -1,5 +1,7 @@
 <div class="col-md-12 col-sm-6">
-
+<div class="alert alert-success notif"  role="alert">
+  <strong>Well done!</strong> Data Berhasil diubah.
+</div>
         <div class="box box-success">
             <div class="box-header with-border">
                 <h4 class="box-tittle"><i class="fa fa-user"></i> Pemeriksaan Laboratorium</h4>
@@ -17,7 +19,7 @@
                     $data = $tampil->Fetch(PDO::FETCH_ASSOC);
 
                     $session = $_GET['session'];
-                    $profil =$koneksi->prepare("SELECT tb_pemeriksaan.jenis_pemeriksaan as profil, tb_pemeriksaan.unit as unit, tb_pemeriksaan.nilai_rujukan as rujukan, tb_pemeriksaan.id_pemeriksaan, tb_test.hasil as hasil FROM tb_test JOIN tb_pemeriksaan ON tb_pemeriksaan.id_pemeriksaan=tb_test.id_pemeriksaan WHERE tb_test.id_lab=:lab");
+                    $profil =$koneksi->prepare("SELECT tb_pemeriksaan.jenis_pemeriksaan as profil, tb_pemeriksaan.unit as unit, tb_pemeriksaan.nilai_rujukan as rujukan, tb_pemeriksaan.id_pemeriksaan, tb_test.hasil as hasil, tb_test.id_test FROM tb_test JOIN tb_pemeriksaan ON tb_pemeriksaan.id_pemeriksaan=tb_test.id_pemeriksaan WHERE tb_test.id_lab=:lab");
                     $profil->bindParam(':lab',$id);
                     $profil->execute();
                     $results = $profil->fetchAll(PDO::FETCH_ASSOC);
@@ -38,18 +40,18 @@
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label"><?php echo $results[$index]['profil'] ?></label>
                             <div class="col-sm-6">
-                              <input type="text" required class="form-control" value="<?php echo $results[$index]['hasil'] ?>" name="hasil[]">
+                              <input type="text" required class="form-control inputhasil" id="<?php echo $results[$index]['id_test'] ?>" value="<?php echo $results[$index]['hasil'] ?>" name="hasil[]">
                               <input id="mm" type="hidden" name="profil[]" value="<?php echo $results[$index]['id_pemeriksaan'] ?>">
                             </div>
                             <label for="mm" class="col-sm-1 control-label"><?php echo $results[$index]['unit'] ?></label>
-                        
+                            <!-- <button class="btn btn-success hapus">SET</button> -->
                         </div>
                     <?php $index++; } ?>
                     <div class="form-group">
                         <div class="col-sm-5"></div>
                         <div class="col-sm-2"><a href="" id="<?php echo $_GET['lab'] ?>" class="col-xs-12 btn btn-danger validasi">validasi</a></div>
                         <div class="col-sm-2">
-                            <input type="submit" class="col-xs-12 btn btn-success" name="submit" value="simpan">
+                            <!-- <input type="submit" class="col-xs-12 btn btn-success" name="submit" value="simpan"> -->
                         </div>
                     </div>
                 </form>
