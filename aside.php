@@ -27,7 +27,7 @@ if($_SESSION['level'] == 'admin' || $_SESSION['level'] == 'dokter'){
 <?php
 if($_SESSION['level'] == 'admin'){
 ?>
-<li><a href="#"><i class="fa fa-user"></i> <span>Administrator</span></a>
+<li><a href="#"><i class="fa fa-user backup"></i> <span>Administrator</span></a>
     <ul class="treeview-menu">
         <li><a href="home.php?page=user"><i class="fa fa-user"></i><span> Manajemen User</span></li></a></li>
         <li><a href="home.php?page=backup"><i class="fa fa-download"></i><span> Backup</span></li></a></li>

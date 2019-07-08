@@ -316,6 +316,18 @@
 
   $('.notif').hide();
 
+  // function print
+  function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+
   function processChange(itemstring){
     //console.log(itemstring);
     //return false;
@@ -343,6 +355,10 @@
       });
   }
 
+  if($){
+
+  }
+
   function checkDate() {
       var date = new Date();
       console.log(date.getDay());
@@ -355,6 +371,10 @@
   var dateLoop = setInterval(function() {
       checkDate();
   },5000);
+
+  <?php if($_SESSION['level'] == 'admin' && !$_COOKIE['backup'] == NULL){
+    echo 'setInterval(function(){ $.notify("Jangan Lupa untuk backup database anda.",{ position:"right" }); }, 1000);';
+  } ?>
 
   </script>
 
