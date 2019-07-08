@@ -37,6 +37,16 @@ elseif($eks=="addcart"){
   }
 }
 
+elseif($eks="transaksi"){
+     $id = $_POST['id'];
+     $tampil = $koneksi->prepare("SELECT tb_invoice.*,tb_admin.nama as admin,tb_siswa.nama as pasien FROM tb_invoice JOIN tb_admin ON tb_admin.id_admin=tb_invoice.id_kasir JOIN tb_siswa ON tb_siswa.nis=tb_invoice.id_pasien WHERE tb_invoice.id_invoice =:id_invoice");
+    //  $tampil =$koneksi->prepare("SELECT * FROM tb_pemeriksaan WHERE id_pemeriksaan=:id");
+     $tampil->bindParam(':id_invoice',$id);
+     $tampil->execute();
+     $data = $tampil->Fetch(PDO::FETCH_ASSOC);
+     echo json_encode($data);
+}
+
 elseif ($eks=="hapus") {
   $id = $_POST['id_pemeriksaan'];
 
