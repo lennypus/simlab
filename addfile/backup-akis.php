@@ -94,5 +94,8 @@ function __backup_mysql_database($params)
 }
 
 $msg = __backup_mysql_database($para);
+$cookie_name = "backup";
+$cookie_value = NULL;
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/simlab"); // 86400 = 1 day
 header('location:../home.php?page=backup&msg=Backup berhasil!');
 ?>

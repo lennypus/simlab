@@ -41,6 +41,9 @@
               $_SESSION['level'] = $data['level'];
               $_SESSION['nama'] = $data['nama'];
               $_SESSION['status'] = 'logged';
+              $cookie_name = "backup";
+              $cookie_value = 'belum';
+              setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/simlab"); // 86400 = 1 day
               header("location:index.php");
           }
           else {
