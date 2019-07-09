@@ -275,6 +275,9 @@
 
 <!-- Fungsi Pembayaran -->
 <script>
+    
+
+    
     $('.pembayaran').click (function() {
     var koki = document.cookie;
     console.log(koki);
@@ -382,5 +385,6 @@
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
 <script src="dist/js/notify.min.js"></script>
+<script src="dist/js/barcode.js"></script>
 </body>
 </html>

@@ -17,8 +17,10 @@
                     <div class="table-responsive">
                         <?php 
                             $laporan = isset($_GET['page']);                  
-                            if( $laporan == 'laporan'){
+                            if( $laporan == 'laporan' && !isset($_GET['start'])){
                                 include 'addfile/tabel-data-transaksi.php';
+                            }elseif($laporan && isset($_GET['start'])){
+                                include 'addfile/table-transaksi-range.php';
                             }
                         
                         ?>
