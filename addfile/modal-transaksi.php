@@ -94,6 +94,7 @@
           window.location.href = window.location.href + "&start=" + escape(start) + "&end="+escape(end);
         }
 
+<<<<<<< HEAD
         function convertToRupiah(angka)
         {
           var rupiah = '';		
@@ -102,6 +103,8 @@
           return 'Rp. '+rupiah.split('',rupiah.length-1).reverse().join('');
         }
 
+=======
+>>>>>>> fdcb93b933eec2570fc8deee81e4100ba52712e9
         function detail(id){
           $.ajax({
             type: "POST",
@@ -119,7 +122,11 @@
                   $('#nama').text(data.pasien);
                   $('#tanggal').text(data.datecreate);
                   $('#kasir').text(data.admin);
+<<<<<<< HEAD
                   $('#total').text(convertToRupiah(data.total));
+=======
+                  $('#total').text(data.total);
+>>>>>>> fdcb93b933eec2570fc8deee81e4100ba52712e9
                   // $('#rm').text(data.pasien);
                 }
               });
