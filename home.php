@@ -27,7 +27,11 @@
         apply the skin class to the body tag so the changes take effect.
   -->
   <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
-
+  <style>
+    .select2.select2-container.select2-container--default.select2-container--focus {
+      width: 100% !important;
+    }
+  </style>
   <?php include_once 'addfile/cek-session.php'; ?>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -375,9 +379,6 @@
       checkDate();
   },5000);
 
-  <?php if($_SESSION['level'] == 'admin' && !$_COOKIE['backup'] == NULL){
-    echo 'setInterval(function(){ $.notify("Jangan Lupa untuk backup database anda.",{ position:"right" }); }, 1000);';
-  } ?>
 
   </script>
 

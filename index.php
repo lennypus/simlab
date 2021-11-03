@@ -286,11 +286,7 @@
 <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
 <script src="plugins/datatables/jquery.dataTables.js"></script>
 <script src="addfile/data-siswa.js"></script>
-<script>
-  <?php if($_SESSION['level'] == 'admin' && !$_COOKIE['backup'] == NULL){
-    echo 'setInterval(function(){ $.notify("Jangan Lupa untuk backup database anda.",{ position:"right" }); }, 1000);';
-  } ?>
-</script>
+
 
 
 <!-- AdminLTE App -->

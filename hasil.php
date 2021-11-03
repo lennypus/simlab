@@ -51,7 +51,7 @@
                 <div class="" style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 12px; line-height: 14px;">
                     <p style="font-size: 12px; line-height: 14px; text-align: center;"><span style="font-size: 18px; line-height: 21px;"><strong>HASIL PEMERIKSAAN LABORATORIUM</strong></span>
                     </p>
-                    <p style="font-size: 12px; line-height: 14px; text-align: center;"><span style="font-size: 18px; line-height: 21px;"><strong>POLTEKES KEMENKES LABORATORIUM YOGYAKARTA</strong></span>
+                    <p style="font-size: 12px; line-height: 14px; text-align: center;"><span style="font-size: 18px; line-height: 21px;"><strong>LABORATORIUM ANALIS KESEHATAN</strong></span>
                     </p>
                     <p style="font-size: 12px; line-height: 14px; text-align: center;"><span style="font-size: 18px; line-height: 21px;"><span style="font-size: 12px; line-height: 14px;">Jl Tatabumi No. 3, Banyuraden, Gamping, Sleman 55293 Telp/Fax (0274) 617601 Yogyakarta.</span>
                         <br />
